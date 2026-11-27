@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background linear gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0518" />
+      <stop offset="45%" stop-color="#0f0c29" />
+      <stop offset="85%" stop-color="#1b1035" />
+      <stop offset="100%" stop-color="#06020e" />
+    </linearGradient>
+
+    <!-- Glowing orbs radial gradients -->
+    <radialGradient id="glow-purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9333ea" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#6366f1" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0a0518" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.4" />
+      <stop offset="55%" stop-color="#3b82f6" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#0a0518" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glow-pink" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.38" />
+      <stop offset="70%" stop-color="#a855f7" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#0a0518" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Foreground Text Gradient -->
+    <linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="30%" stop-color="#c084fc" />
+      <stop offset="70%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- Pill Gradient -->
+    <linearGradient id="pill-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.25" />
+    </linearGradient>
+
+    <!-- Waveform Glow Filter -->
+    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      .title-text {
+        font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        font-weight: 900;
+        letter-spacing: -1px;
+      }
+      .subtitle-text {
+        font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      .tag-text {
+        font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+      }
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-15px) scale(1.05); }
+      }
+      @keyframes floatFast {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(18px) scale(0.96); }
+      }
+      @keyframes pulseBeam {
+        0%, 100% { opacity: 0.35; stroke-dashoffset: 0; }
+        50% { opacity: 0.85; stroke-dashoffset: 60; }
+      }
+      .orb-1 { animation: floatSlow 8s ease-in-out infinite; }
+      .orb-2 { animation: floatFast 10s ease-in-out infinite; }
+      .orb-3 { animation: floatSlow 12s ease-in-out infinite reverse; }
+      .pulse-line { animation: pulseBeam 6s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- 1. Deep Background Canvas -->
+  <rect width="1200" height="420" rx="16" fill="url(#bg-grad)" />
+
+  <!-- 2. Tech / Matrix Dots Grid Background -->
+  <g opacity="0.08">
+    <pattern id="dot-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#ffffff" />
+    </pattern>
+    <rect width="1200" height="420" fill="url(#dot-grid)" />
+  </g>
+
+  <!-- 3. Ambient Dynamic Glowing Orbs in Background (Non-Obstructing) -->
+  <g>
+    <circle class="orb-1" cx="200" cy="120" r="190" fill="url(#glow-pink)" />
+    <circle class="orb-2" cx="1020" cy="280" r="230" fill="url(#glow-cyan)" />
+    <circle class="orb-3" cx="620" cy="80" r="170" fill="url(#glow-purple)" />
+  </g>
+
+  <!-- 4. Dynamic Soundwave & Synthesizer Frequency Bars (Underlay) -->
+  <g opacity="0.45" filter="url(#glow-filter)">
+    <!-- Animated EQ Bars at Bottom -->
+    <g fill="#8b5cf6">
+      <rect x="120" y="360" width="5" height="35" rx="2.5">
+        <animate attributeName="height" values="35;15;50;20;35" dur="1.8s" repeatCount="indefinite" />
+        <animate attributeName="y" values="360;380;345;375;360" dur="1.8s" repeatCount="indefinite" />
+      </rect>
+      <rect x="135" y="350" width="5" height="45" rx="2.5">
+        <animate attributeName="height" values="45;65;20;55;45" dur="1.4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="350;330;375;340;350" dur="1.4s" repeatCount="indefinite" />
+      </rect>
+      <rect x="150" y="340" width="5" height="55" rx="2.5">
+        <animate attributeName="height" values="55;25;70;40;55" dur="2.1s" repeatCount="indefinite" />
+        <animate attributeName="y" values="340;370;325;355;340" dur="2.1s" repeatCount="indefinite" />
+      </rect>
+      <rect x="165" y="355" width="5" height="40" rx="2.5">
+        <animate attributeName="height" values="40;60;15;45;40" dur="1.6s" repeatCount="indefinite" />
+        <animate attributeName="y" values="355;335;380;350;355" dur="1.6s" repeatCount="indefinite" />
+      </rect>
+    </g>
+
+    <!-- Right Side EQ Bars -->
+    <g fill="#06b6d4">
+      <rect x="1030" y="350" width="5" height="45" rx="2.5">
+        <animate attributeName="height" values="45;20;60;30;45" dur="1.7s" repeatCount="indefinite" />
+        <animate attributeName="y" values="350;375;335;365;350" dur="1.7s" repeatCount="indefinite" />
+      </rect>
+      <rect x="1045" y="340" width="5" height="55" rx="2.5">
+        <animate attributeName="height" values="55;65;25;70;55" dur="2.3s" repeatCount="indefinite" />
+        <animate attributeName="y" values="340;330;370;325;340" dur="2.3s" repeatCount="indefinite" />
+      </rect>
+      <rect x="1060" y="360" width="5" height="35" rx="2.5">
+        <animate attributeName="height" values="35;55;20;40;35" dur="1.5s" repeatCount="indefinite" />
+        <animate attributeName="y" values="360;340;375;355;360" dur="1.5s" repeatCount="indefinite" />
+      </rect>
+      <rect x="1075" y="345" width="5" height="50" rx="2.5">
+        <animate attributeName="height" values="50;15;65;35;50" dur="1.9s" repeatCount="indefinite" />
+        <animate attributeName="y" values="345;380;330;360;345" dur="1.9s" repeatCount="indefinite" />
+      </rect>
+    </g>
+
+    <!-- Harmonic Sound Waveform Path across canvas -->
+    <path class="pulse-line" d="M0,390 Q150,330 300,385 T600,370 T900,395 T1200,365" fill="none" stroke="url(#text-grad)" stroke-width="2" stroke-dasharray="8 6" />
+    <path d="M0,395 Q180,360 360,390 T720,380 T1080,375 T1200,390" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.6" />
+  </g>
+
+  <!-- 5. Main Foreground Title & Content (Crisp, High-Contrast, Guaranteed Visible) -->
+  <g id="foreground-content">
+    <!-- Top Pill Badge -->
+    <g transform="translate(435, 42)">
+      <rect width="330" height="34" rx="17" fill="url(#pill-grad)" stroke="#a855f7" stroke-width="1" stroke-opacity="0.6" />
+      <circle cx="20" cy="17" r="5" fill="#10b981">
+        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="35" y="22" fill="#e2e8f0" class="tag-text">2026 AI MUSIC &amp; SVS ECOSYSTEM</text>
+    </g>
+
+    <!-- Main Hero Title -->
+    <text x="600" y="145" text-anchor="middle" class="title-text" font-size="44" fill="url(#text-grad)">
+      Generative Songwriting &amp; Vocal Synthesis Studio
+    </text>
+
+    <!-- Subtitle / Value Proposition -->
+    <text x="600" y="195" text-anchor="middle" class="subtitle-text" font-size="20" fill="#f8fafc">
+      Top SaaS Platforms &amp; Open-Source AI Engines for Full-Song Composition
+    </text>
+
+    <!-- Second Subtitle Line: Key Tech Stack -->
+    <text x="600" y="232" text-anchor="middle" class="subtitle-text" font-size="15" fill="#94a3b8">
+      Lyrics-to-Music • Singing Voice Synthesis (SVS) • Voice Conversion (SVC) • Stem Isolation
+    </text>
+
+    <!-- Feature Pills / Highlights Row -->
+    <g transform="translate(140, 275)">
+      <!-- Pill 1: Suno & Udio -->
+      <g transform="translate(0, 0)">
+        <rect width="200" height="40" rx="20" fill="#1e1b4b" fill-opacity="0.75" stroke="#6366f1" stroke-width="1.2" />
+        <text x="100" y="25" text-anchor="middle" class="tag-text" fill="#e0e7ff">✨ Suno • Udio • Splash</text>
+      </g>
+      <!-- Pill 2: YuE2-Studio -->
+      <g transform="translate(225, 0)">
+        <rect width="220" height="40" rx="20" fill="#1e1b4b" fill-opacity="0.75" stroke="#8b5cf6" stroke-width="1.2" />
+        <text x="110" y="25" text-anchor="middle" class="tag-text" fill="#ede9fe">🎵 YuE2-Studio &amp; YuE</text>
+      </g>
+      <!-- Pill 3: DiffSinger & OpenUtau -->
+      <g transform="translate(470, 0)">
+        <rect width="220" height="40" rx="20" fill="#1e1b4b" fill-opacity="0.75" stroke="#a855f7" stroke-width="1.2" />
+        <text x="110" y="25" text-anchor="middle" class="tag-text" fill="#fae8ff">🎤 DiffSinger &amp; OpenUtau</text>
+      </g>
+      <!-- Pill 4: GPT-SoVITS & UVR5 -->
+      <g transform="translate(715, 0)">
+        <rect width="205" height="40" rx="20" fill="#1e1b4b" fill-opacity="0.75" stroke="#06b6d4" stroke-width="1.2" />
+        <text x="102" y="25" text-anchor="middle" class="tag-text" fill="#cffafe">🎧 GPT-SoVITS &amp; UVR5</text>
+      </g>
+    </g>
+
+    <!-- Bottom Footer Tagline -->
+    <text x="600" y="360" text-anchor="middle" class="subtitle-text" font-size="13" fill="#64748b">
+      Curated by Ishan Dutta • Updated Continuously for Songwriters, Audio Engineers &amp; AI Researchers
+    </text>
+  </g>
+</svg>
